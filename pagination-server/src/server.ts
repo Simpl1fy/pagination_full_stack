@@ -1,14 +1,17 @@
 import express, { Request, Response } from 'express';
 require('dotenv').config();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 import connectDB from './database/db';
 import Data from './database/Model/dataSchema';
-import { rmSync } from 'fs';
 
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
+app.use(cors());
+
+
 
 const PORT = process.env.PORT || 5000;
 
